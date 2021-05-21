@@ -4,6 +4,15 @@ from math import log
 import operator
 import numpy as np
 import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+#测试修改的内容2333
+
+def load_data():
+    #加载数据, 返回数据和类别值
+    data = load_iris()
+    return data['data'], data['target']
 
 
 #计算给定数据集的信息熵(香农熵)
@@ -187,7 +196,11 @@ if __name__ == '__main__':
     data = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)    # 下载iris数据集
     #data = pd.read_csv('./data/iris.data.csv', header=None)
     data.columns = ['sepal length', 'sepal width', 'petal length', 'petal width', 'species']    # 特征及类别名称
- 
+
+    x,y = load_data()
+    #划分数据集和训练集
+    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.5,random_state = 100)
+
     X = data.iloc[0:150, 0:4].values
     y = data.iloc[0:150, 4].values
     y[y == 'Iris-setosa'] = 0                                 # Iris-setosa 输出label用0表示
