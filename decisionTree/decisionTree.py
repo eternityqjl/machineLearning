@@ -12,8 +12,6 @@ def load_data():
     data = load_iris()
     return data['data'], data['target']
 
-#testing: this is master branch
-
 #计算给定数据集的信息熵(香农熵)
 def calcShannonEnt(dataSet):
     numEntires = len(dataSet)                        #返回数据集的行数
