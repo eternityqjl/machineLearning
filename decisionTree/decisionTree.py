@@ -7,17 +7,10 @@ import pandas as pd
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
-#测试修改的内容2333
-#继续进行commit的测试
-
-def hello_world():
-    print("hello world!")
-
 def load_data():
     #加载数据, 返回数据和类别值
     data = load_iris()
     return data['data'], data['target']
-
 
 #计算给定数据集的信息熵(香农熵)
 def calcShannonEnt(dataSet):
