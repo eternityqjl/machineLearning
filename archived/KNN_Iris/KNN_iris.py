@@ -30,6 +30,19 @@ class KNearestNeighbor(object):
 
        return y_pred
 
+'''
+鸢尾花数据集共有3种类型的花，即3类标签，分别为：
+    Setosa
+    Versicolour
+    Virginica
+数据集共有4个属性，分别为：
+    花萼的长
+    花萼的宽
+    花瓣的长
+    花瓣的宽
+'''
+
+
 if __name__ == "__main__":
     data = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)    # 下载iris数据集
     #data = pd.read_csv('./data/iris.data.csv', header=None)
@@ -51,7 +64,7 @@ if __name__ == "__main__":
     y_versicolor_train = y_versicolor[:30]
     X_virginica_train = X_virginica[:30, :]
     y_virginica_train = y_virginica[:30]
-    X_train = np.vstack([X_setosa_train, X_versicolor_train, X_virginica_train])
+    X_train = np.vstack([X_setosa_train, X_versicolor_train, X_virginica_train])    #3类样本构成的30个训练集
     y_train = np.hstack([y_setosa_train, y_versicolor_train, y_virginica_train])
 
     # validation set
@@ -61,7 +74,7 @@ if __name__ == "__main__":
     y_versicolor_val = y_versicolor[30:40]
     X_virginica_val = X_virginica[30:40, :]
     y_virginica_val = y_virginica[30:40]
-    X_val = np.vstack([X_setosa_val, X_versicolor_val, X_virginica_val])
+    X_val = np.vstack([X_setosa_val, X_versicolor_val, X_virginica_val])    #3类样本构成的10个验证集
     y_val = np.hstack([y_setosa_val, y_versicolor_val, y_virginica_val])
 
     # test set
@@ -71,7 +84,7 @@ if __name__ == "__main__":
     y_versicolor_test = y_versicolor[40:50]
     X_virginica_test = X_virginica[40:50, :]
     y_virginica_test = y_virginica[40:50]
-    X_test = np.vstack([X_setosa_test, X_versicolor_test, X_virginica_test])
+    X_test = np.vstack([X_setosa_test, X_versicolor_test, X_virginica_test])    #3类样本构成的10个测试集
     y_test = np.hstack([y_setosa_test, y_versicolor_test, y_virginica_test])
 
 
